@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+	<Task name="PicoDstMaker" type="VpdNoiseCorrecter" config="" nodePath="VpdNoiseCorrecter" />
+
+	<VpdNoiseCorrecter>
+		<Logger globalLogLevel="info" />
+		
+		<input>
+			<dst treeName="bbq" url="/Users/danielbrandenburg/bnl/local/work/vpdNoiseCorrecter/bin/list.lis" maxFiles="10000"/>
+		</input>
+		<DataSource></DataSource>
+
+		<output>
+			<data>qa.root</data>
+		</output>	
+
+		<histograms>
+			
+			<Histo name="fastTdcEast" title="TDC East" nBins_x="16" min_x="0" max_x="16" bins_y="bins.TDC" />
+			<Histo name="fastTdcWest" title="TDC West" nBins_x="16" min_x="0" max_x="16" bins_y="bins.TDC" />
+
+			<Histo name="tdcEast" title="TDC East" nBins_x="16" min_x="0" max_x="16" bins_y="bins.TDC" />
+			<Histo name="tdcEastCentered" title="TDC East" nBins_x="16" min_x="0" max_x="16" bins_y="bins.TDC" />
+			<Histo name="tdcEastCenter" title="TDC East" nBins_x="16" min_x="0" max_x="16" />
+			<Histo name="tdcWest" title="TDC West" nBins_x="16" min_x="0" max_x="16" bins_y="bins.TDC" />
+			<Histo name="tdcWestCentered" title="TDC West" nBins_x="16" min_x="0" max_x="16" bins_y="bins.TDC" />
+			<Histo name="tdcWestCenter" title="TDC West" nBins_x="16" min_x="0" max_x="16" />
+
+			<Histo name="deltaVz" title="L0 vZ - TPC vZ [cm]" bins_x="bins.deltaVz" />
+			<Histo name="deltaVzOff" title="L0 vZ - TPC vZ [cm]" bins_x="bins.deltaVz" />
+			<Histo name="deltaVzOffNoise" title="L0 vZ - TPC vZ [cm]" bins_x="bins.deltaVz" />
+			<Histo name="deltaVzNoise" title="L0 vZ - TPC vZ [cm]" bins_x="bins.deltaVz" />
+
+			<Histo name="fastChEast" title="Fast Channel East" nBins_x="16" min_x="0" max_x="16" />
+			<Histo name="fastChWest" title="Fast Channel West" nBins_x="16" min_x="0" max_x="16" />
+
+			<Histo name="fastPulserChEast" title="Fast Pulser Channel East" nBins_x="16" min_x="0" max_x="16" />
+			<Histo name="fastPulserChWest" title="Fast Pulser Channel West" nBins_x="16" min_x="0" max_x="16" />
+
+		</histograms>
+
+		<ChannelMaskEast>0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1 </ChannelMaskEast>
+		<ChannelMaskWest>0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1 </ChannelMaskWest>
+
+	</VpdNoiseCorrecter>
+
+	<bins>
+		<TDC width="2" min="1" max="4096" />
+		<deltaVz width="0.5" min="-100" max="100" />
+	</bins>
+
+</config>
